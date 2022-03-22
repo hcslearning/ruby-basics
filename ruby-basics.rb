@@ -5,10 +5,41 @@ Lorem ipsum dolor
 =end
 
 # Internamente puts es invocado desde la clase Kernel
-puts "Hola Mundo\n\n\n"
+puts "Hola Mundo\n\n"
+
+# String multilinea %q<delimitador>
+saludo=%q{
+Lorem ipsum
+dolor asit
+atme consequeum
+}
+
+saludo2=%q!
+Lorem ipsum
+dolor asit
+atme consequeum
+!
+
+# here document syntax
+saludo3= <<TERMINA_STRING
+Lorem ipsum
+dolor asit
+atme consequeum
+TERMINA_STRING
+
+# metodo tipo funcion clase Kernel x defecto
+def separacion veces=10
+  puts "-"*veces
+end
+
+puts saludo
+separacion
+puts saludo2
+separacion
+puts saludo3
 
 # Data types
-puts "Tipos de Datos\n============="
+puts "\nTipos de Datos\n============="
 puts "Cadena de texto".class # String 
 puts true.class # TrueClass
 puts false.class # FalseClass
@@ -25,7 +56,7 @@ puts h.class # Hash
 
 
 # Conditionals Expressions
-puts "Expresiones Condicionales IF ELSIF ELSE\n=========================================";
+puts "\nExpresiones Condicionales IF ELSIF ELSE\n=========================================";
 diaSemana = "Martes"
 if diaSemana == "Lunes" then
  puts "Porotos" 
@@ -48,3 +79,34 @@ case diaSemana
   else
     puts "Trabaja!!!!"
 end 
+
+# Loops
+puts "\nLOOPS\n================="
+
+3.times do |i|
+  puts "i=#{i}"
+end
+
+separacion
+
+["manzana", "pera", "naranja"].each { |fruta|
+  puts "Me gustar comer #{fruta}"
+}
+
+separacion()
+
+1.upto(3) { |i|
+  puts "i=#{i}"
+}
+
+separacion
+
+10.step(50,10) { |i|
+  puts "i=#{i}"
+}
+
+separacion
+
+10.step(0, -2) { |i|
+  puts "i=#{i}"
+}
